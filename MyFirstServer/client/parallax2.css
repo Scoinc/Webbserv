@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h1{
+    text-align: center;
+    font-size: 575%;
+    color: #4a4444;
+    margin: 25% 0;
+}
+
+h2{
+    text-align: center;
+    font-size: 575%;
+    color: #e5e5e5;
+    margin: 20% 0;
+}
+
+.parallax-inner{
+    padding: 20%;
+}
+
+.parallax{
+    background: url(attack%20on%20kirby.png) fixed no-repeat center /cover;
+}

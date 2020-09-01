@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Garamond;
+    font-size: 5em;
+    font-weight: bolder;
+}
+
+.sticky{
+    position: sticky;
+    top: 30px;
+    color: #fa0;
+    text-align: center;
+}
+
+.block-1,.block3{
+    height: 100vh;
+    padding: 70px 20px;
+    background-size: cover;
+    background-image: url(index-hero-og.jpg);
+    box-sizing: border-box;
+    background-position: center;
+}
+
+.block2{
+    background: url(uwu.gif) no-repeat fixed;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+}
+
+.block3{
+    background-image: url(attack%20on%20kirby.png);
+}

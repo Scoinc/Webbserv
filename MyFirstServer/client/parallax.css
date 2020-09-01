@@ -1,0 +1,34 @@
+body {
+    font-family: helvetica;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    height: 200px;
+    padding-top: 100px;
+}
+
+#footer {
+    height: 800px;
+    background-color: ghostwhite;
+}
+
+#footer p {
+    width: 500px;
+    margin: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.parallax {
+    background-image: url(attack%20on%20kirby.png);
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
