@@ -25,7 +25,7 @@ h1 {
 }
 
 .parallax {
-    background-image: url(attack%20on%20kirby.png);
+    background-image: url(bild);
     min-height: 100vh;
     background-attachment: fixed;
     background-position: center;
