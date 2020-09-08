@@ -10,5 +10,5 @@ app.get('/bild', (req, res) => {
     res.sendFile(clientDir + "attackOnKirby.png")
   })
 app.get('/', (req, res) => res.sendFile(clientDir + "parallax.html"))
-app.get('/teknik', (req, res) => res.send('e'))
+app.post('/', (req, res) => res.sendFile(clientDir + "parallax.html"))
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
