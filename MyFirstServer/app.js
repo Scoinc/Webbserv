@@ -3,6 +3,9 @@ const app = express()
 const port = 3000
 const clientDir = __dirname + "\\client\\"
 
+app.use(express.json())
+app.use(express.urlencoded())
+
 app.get('/cssen', (req, res) => {
   res.sendFile(clientDir + "parallax.css")
 })
