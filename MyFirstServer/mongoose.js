@@ -6,21 +6,27 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
 });
 
-const kittySchema = new mongoose.Schema({
-    name: String
+const personSchema = new mongoose.Schema({
+    name: String,
+    age: Number
   });
 
+  personSchema.methods.speak = () => {
+    console.log("Hi")
+    /*const presentation = this.name ? `My name is $(this.name).` : `We are watching you.`;
+
+    console.log(presentation)*/
+  }
+
+  const Person = mongoose.model('Person', personSchema);
+
+  const niklas = new Person({name: 'Niklas', age: '33'});
+
+/*
   const Kitten = mongoose.model('Kitten', kittySchema);
 
   const silence = new Kitten({ name: 'Silence' });
 console.log(silence.name); // 'Silence'
-
-kittySchema.methods.speak = function () {
-    const greeting = this.name
-      ? "Meow name is " + this.name
-      : "I don't have a name";
-    console.log(greeting);
-  }
   
   const Kitten = mongoose.model('Kitten', kittySchema);
 
@@ -38,3 +44,4 @@ fluffy.save(function (err, fluffy) {
   })
 
   Kitten.find({ name: /^fluff/ }, callback);
+  */
