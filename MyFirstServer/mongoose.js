@@ -12,17 +12,20 @@ const personSchema = new mongoose.Schema({
   });
 
   personSchema.methods.speak = () => {
-    console.log("Hi")
-    /*const presentation = this.name ? `My name is $(this.name).` : `We are watching you.`;
-
-    console.log(presentation)*/
+    console.log("Hi"),
+    console.log("My name is " + this.name)
   }
 
   const Person = mongoose.model('Person', personSchema);
 
   const niklas = new Person({name: 'Niklas', age: '33'});
 
+  niklas.save();
 /*
+  const kittenSchame = new mongoose.Schema({
+    name: String
+  });
+
   const Kitten = mongoose.model('Kitten', kittySchema);
 
   const silence = new Kitten({ name: 'Silence' });
@@ -44,4 +47,4 @@ fluffy.save(function (err, fluffy) {
   })
 
   Kitten.find({ name: /^fluff/ }, callback);
-  */
+*/
