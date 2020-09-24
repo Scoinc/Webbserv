@@ -1,6 +1,6 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+const express = require('express')
+const app = express()
+const port = 3000
 const clientDir = __dirname + "\\client\\"
 
 const mongoose = require('mongoose');
@@ -13,7 +13,7 @@ db.once('open', function() {
 
 const personSchema = new mongoose.Schema({
     name: String,
-    age: Number
+    email: String
   });
 
   personSchema.methods.speak = () => {
@@ -35,39 +35,9 @@ app.get('/bild', (req, res) => {
 app.get('/', (req, res) => res.sendFile(clientDir + "parallax.html"))
 
 app.post('/', (req, res) => {
-  console.log(req.body.name)
-  console.log(req.body.email)
-  res.redirect('/')
+  const person = new Person({name: (req.body.username), email: (req.body.email)});
+
+  person.save()
 })
 
-  const niklas = new Person({name: 'Niklas', age: '33'});
-
-  niklas.save();
-
-/*
-  const kittenSchame = new mongoose.Schema({
-    name: String
-  });
-
-  const Kitten = mongoose.model('Kitten', kittySchema);
-
-  const silence = new Kitten({ name: 'Silence' });
-console.log(silence.name); // 'Silence'
-  
-  const Kitten = mongoose.model('Kitten', kittySchema);
-
-  const fluffy = new Kitten({ name: 'fluffy' });
-fluffy.speak(); // "Meow name is fluffy"
-
-fluffy.save(function (err, fluffy) {
-    if (err) return console.error(err);
-    fluffy.speak();
-  });
-
-  Kitten.find(function (err, kittens) {
-    if (err) return console.error(err);
-    console.log(kittens);
-  })
-
-  Kitten.find({ name: /^fluff/ }, callback);
-*/
+  app.listen(port);
