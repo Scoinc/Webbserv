@@ -21,6 +21,7 @@ const personSchema = new mongoose.Schema({
   const niklas = new Person({name: 'Niklas', age: '33'});
 
   niklas.save();
+  
 /*
   const kittenSchame = new mongoose.Schema({
     name: String
