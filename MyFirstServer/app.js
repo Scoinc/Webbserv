@@ -1,7 +1,9 @@
 const express = require('express')
+const { Mongoose } = require('mongoose')
 const app = express()
 const port = 3000
 const clientDir = __dirname + "\\client\\"
+const mongoose = require('./mongoose')
 
 app.use(express.json())
 app.use(express.urlencoded())
@@ -15,8 +17,8 @@ app.get('/bild', (req, res) => {
 app.get('/', (req, res) => res.sendFile(clientDir + "parallax.html"))
 
 app.post('/', (req, res) => {
-  console.log(req.body.name)
-  console.log(req.body.email)
+  mongoose.storePerson(req.body.name, req.body.email, req.body.age)
+
   res.redirect('/')
 })
 
