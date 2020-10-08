@@ -34,11 +34,11 @@ app.get('/bild', (req, res) => {
   })
 app.get('/', (req, res) => res.sendFile(clientDir + "parallax.html"))
 
-app.post('/', (req, res) => {
-  const person = new Person({name: (req.body.username), email: (req.body.email)});
-
-  person.save()
-})
+exports.storePerson = (name, email, age) => {
+  var person = new Person({
+      name: name, 
+      email: email
+     })
+    }
 
   app.listen(port);
-  
