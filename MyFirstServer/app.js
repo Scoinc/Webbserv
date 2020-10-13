@@ -1,9 +1,10 @@
 const express = require('express')
 const { Mongoose } = require('mongoose')
 const app = express()
-const port = 3000
+const port = 4000
 const clientDir = __dirname + "\\client\\"
-const mongoose = require('./mongoose')
+const personMod = require('./PersonMod')
+const dbMod = require('./dbMod')
 
 app.set('view engine', 'ejs')
 
@@ -16,10 +17,12 @@ app.get('/cssen', (req, res) => {
 app.get('/bild', (req, res) => {
     res.sendFile(clientDir + "attackOnKirby.png")
   })
-app.get('/', (req, res) => res.sendFile(clientDir + "index.ejs"))
+app.get('/', (req, res) => res.sendFile(clientDir + "index.html"))
 
 app.post('/', (req, res) => {
-  mongoose.storePerson(req.body.name, req.body.email, req.body.age)
+  let person = personMod.createPerson(req.body.name, req.body.email)
+
+  dbMod.storeElement(person)
 
   res.redirect('/')
 })
