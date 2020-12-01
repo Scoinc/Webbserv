@@ -4,7 +4,7 @@ mongoose.connect('mongodb://localhost/webshop', { useNewUrlParser: true, useUnif
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
-    // we're connected!
+    console.log("Its working!");
 });
 
 exports.storeElement = (element) => {
