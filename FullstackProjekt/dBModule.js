@@ -4,11 +4,11 @@ mongoose.connect('mongodb://localhost/webshop', { useNewUrlParser: true, useUnif
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
-    console.log("Its working!");
+  console.log("Its working!");
 });
 
 exports.storeElement = (element) => {
-  element.save(()=>{
-       console.log("Successfully saved element in database!")
+  element.save(() => {
+    console.log("Successfully saved element in database!")
   })
 }

@@ -18,23 +18,23 @@ app.use(express.json())
 app.use(express.urlencoded())
 
 //Ställ in EJS som vymotor för servern. 
-app.set('view engine' , 'ejs')
+app.set('view engine', 'ejs')
 
 //Lyssnar på GET requests på addressen <domain>/
 app.get('/', (req, res) => {
-    //rendera sidan index.ejs
+  //rendera sidan index.ejs
   res.render('/index.ejs')
 })
 
 //Lyssnar på POST requests på addressen <domain>/
 app.post('/', function (req, res) {
-    //Skapa ett Message objekt
-    const message = MessageModel.createMessage(req.body.email, req.body.message)
-    //spara elementet Message i databasen
-    dbModule.storeElement(message)
+  //Skapa ett Message objekt
+  const message = MessageModel.createMessage(req.body.email, req.body.message)
+  //spara elementet Message i databasen
+  dbModule.storeElement(message)
 
-    //Omdirigera klienten till huvudsidan
-    res.redirect('/')
+  //Omdirigera klienten till huvudsidan
+  res.redirect('/')
 })
 
 //Sätt igång servern så att den kan ta emot requests på vald port.
