@@ -22,9 +22,9 @@ app.use(express.urlencoded())
 app.set('view engine', 'ejs')
 
 //Lyssnar på GET requests på addressen <domain>/
-app.get('/', (req, res) => {
-  //rendera sidan index.ejs
-  res.render('pages/index.ejs')
+app.get("/", async (req, res) => {
+  const messages = await MessageModel.getAllMessages();
+  res.render('pages/index.ejs', { messages: messages });
 })
 
 app.get('/index', (req, res) => {
@@ -43,18 +43,16 @@ app.get('/Abilities', (req, res) => {
 })
 
 //Lyssnar på POST requests på addressen <domain>/
-app.post('/', function (req, res) {
+app.post('/', async (req, res) => {
   //Skapa ett Message objekt
   const message = MessageModel.createMessage(req.body.email, req.body.message)
+
   //spara elementet Message i databasen
-  dbModule.storeElement(message)
+  await dbModule.storeElement(message)
 
-  //This barely works, while text isn't defined 'Abilities.ejs' is unusable and i couldn't figure out how to pre-define it
-  //Vill också göra det klart att jag löste detta och med min hemska lösning hjälpe de andra
-  //Detta drar också inte data från mongoDB på sättet uppgiften beskriver utan skickar samma data till mongoDB som den gör till Abilities.ejs
-  let text = " " + req.body.message
-
-  res.render('pages/Abilities.ejs', { text })
+  //Ladda om sidan
+  //Index.ejs får inte längre in messages inskickat så den klagar på att messages inte är definierat efter submit men fungerar efter att ha laddat om sidan
+  res.render('pages/index.ejs', { messages: messages });
 })
 
 //Sätt igång servern så att den kan ta emot requests på vald port.

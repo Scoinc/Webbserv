@@ -80,5 +80,15 @@
       <button type="submit">Submit</button>
   </form>
 </div>
+
+<div class="messageBoard">
+    <% for( let i = 0; i < messages.length; i++ ) { %>
+    <div>
+        <!-- Detta printar ingenting men jag vet inte hur jag ska printa det -->
+        <p><% messages.email %></p>
+        <p><% messages.text %></p>
+    </div>
+    <% } %>
+</div>
 </div>
 </html>
