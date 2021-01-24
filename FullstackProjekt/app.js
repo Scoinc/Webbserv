@@ -1,5 +1,6 @@
 //Inkludera Express.js
 const express = require('express')
+const { Mongoose } = require('mongoose')
 //Inkludera dbModule.js
 const dbModule = require('./dBModule')
 //Inkludera MessageModel för att kunna spara meddelanden i databasen 
@@ -27,19 +28,21 @@ app.get('/', (req, res) => {
 })
 
 app.get('/index', (req, res) => {
-  //rendera sidan index.ejs
+  //rendera sidan index.ejs när klickad på i header
   res.render('pages/index.ejs')
 })
 
 app.get('/Skins', (req, res) => {
-  //rendera sidan index.ejs
+  //rendera sidan Skins.ejs när klickad på i header
   res.render('pages/Skins.ejs')
 })
 
 app.get('/Abilities', (req, res) => {
-  //rendera sidan index.ejs
+  //rendera sidan Abilities.ejs när klickad på i header
   res.render('pages/Abilities.ejs')
 })
+
+let text = ""
 
 //Lyssnar på POST requests på addressen <domain>/
 app.post('/', function (req, res) {
@@ -48,8 +51,10 @@ app.post('/', function (req, res) {
   //spara elementet Message i databasen
   dbModule.storeElement(message)
 
-  //Omdirigera klienten till huvudsidan
-  res.redirect('/')
+  //This barely works, while text isn't defined 'Abilities.ejs' is unusable and i couldn't figure out how to pre-define it
+  let text =  " " + req.body.message
+
+  res.render('pages/Abilities.ejs', { text })
 })
 
 //Sätt igång servern så att den kan ta emot requests på vald port.
