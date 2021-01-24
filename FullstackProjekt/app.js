@@ -42,8 +42,6 @@ app.get('/Abilities', (req, res) => {
   res.render('pages/Abilities.ejs')
 })
 
-let text = ""
-
 //Lyssnar på POST requests på addressen <domain>/
 app.post('/', function (req, res) {
   //Skapa ett Message objekt
