@@ -23,7 +23,22 @@ app.set('view engine', 'ejs')
 //Lyssnar på GET requests på addressen <domain>/
 app.get('/', (req, res) => {
   //rendera sidan index.ejs
-  res.render('/index.ejs')
+  res.render('pages/index.ejs')
+})
+
+app.get('/index', (req, res) => {
+  //rendera sidan index.ejs
+  res.render('pages/index.ejs')
+})
+
+app.get('/Skins', (req, res) => {
+  //rendera sidan index.ejs
+  res.render('pages/Skins.ejs')
+})
+
+app.get('/Abilities', (req, res) => {
+  //rendera sidan index.ejs
+  res.render('pages/Abilities.ejs')
 })
 
 //Lyssnar på POST requests på addressen <domain>/
