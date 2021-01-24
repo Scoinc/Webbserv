@@ -51,7 +51,8 @@ app.post('/', function (req, res) {
 
   //This barely works, while text isn't defined 'Abilities.ejs' is unusable and i couldn't figure out how to pre-define it
   //Vill också göra det klart att jag löste detta och med min hemska lösning hjälpe de andra
-  let text =  " " + req.body.message
+  //Detta drar också inte data från mongoDB på sättet uppgiften beskriver utan skickar samma data till mongoDB som den gör till Abilities.ejs
+  let text = " " + req.body.message
 
   res.render('pages/Abilities.ejs', { text })
 })
