@@ -3,3 +3,5 @@ Jag löste det aldrig med att printa ur databasen. jag kunde få EJS att läsa d
 Jag prokastinerade uppgiften till sista minut och det brukar inte vara bästa strategin.
 
 Overall gick uppgiften rätt åt helvete med tanke på att jag inte ens blev klar med den.
+
+Jag borde skapat en riktig planering för uppgiften istället för att bara winga det
